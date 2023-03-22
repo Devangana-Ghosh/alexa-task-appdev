@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578875282779",
+    "project_id": "cashncarry-ddadf",
+    "storage_bucket": "cashncarry-ddadf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578875282779:android:b5841efe752ae829b9367e",
+        "android_client_info": {
+          "package_name": "com.example.alexa_shopping"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578875282779-iuvjaku0uni3poh6u0d3ql6j5an89246.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADmeuzrzudu61yVIpz3BUZ515vySvC7M4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578875282779-iuvjaku0uni3poh6u0d3ql6j5an89246.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

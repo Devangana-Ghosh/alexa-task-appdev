@@ -21,18 +21,20 @@ class _CartPageState extends State<CartPage> {
       appBar: AppBar(
         title: Text('Cart'),
       ),
-      body: Center(
-        child: Text('Your Cart is Empty'),
+      body: widget.cartItems.isEmpty
+          ? Center(child: Text('Your Cart is Empty'))
+          : ListView.builder(
+        itemCount: widget.cartItems.length,
+        itemBuilder: (BuildContext context, int index) {
+          dynamic product = widget.cartItems[index];
+          return ListTile(
+            title: Text(product['title']),
+            subtitle: Text('\$${product['price']}'),
+          );
+        },
       ),
     );
   }
-}
-
-class Product {
-  final String name;
-  final double price;
-
-  Product(this.name, this.price);
 }
 
 class ProductList extends StatefulWidget {
@@ -59,6 +61,12 @@ class _ProductListState extends State<ProductList> {
     }
   }
 
+  void addToCart(dynamic product) {
+    setState(() {
+      cartItems.add(product);
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -81,9 +89,10 @@ class _ProductListState extends State<ProductList> {
             trailing: IconButton(
               icon: Icon(Icons.add),
               onPressed: () {
+                addToCart(product);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => CartPage(cartItems: [product])),
+                  MaterialPageRoute(builder: (context) => CartPage(cartItems: cartItems)),
                 );
               },
             ),

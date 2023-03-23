@@ -1,28 +1,35 @@
 import 'package:alexa_shopping/widgets/productInfo.dart';
+import 'package:flutter/material.dart';
 
-class CartItem {
-  final Product product;
-  int quantity;
 
-  CartItem({
-    required this.product,
-    this.quantity = 1,
-  });
-}
+class CartPage extends StatelessWidget {
+  final List<dynamic> cartItems;
 
-class Cart {
-  final List<CartItem> items = [];
 
-  void addItem(Product product) {
-    final cartItemIndex = items.indexWhere((item) => item.product.id == product.id);
+  const CartPage({Key? key, required this.cartItems}) : super(key: key);
 
-    if (cartItemIndex >= 0) {
-      items[cartItemIndex].quantity++;
-    } else {
-      items.add(CartItem(product: product));
-    }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cart'),
+      ),
+      body: ListView.builder(
+        itemCount: cartItems.length,
+        itemBuilder: (BuildContext context, int index) {
+          dynamic product= cartItems[index];
+          return ListTile(
+            title: Text(product['title']),
+            subtitle: Text('\$${product['price']}'),
+          );
+        },
+      ),
+    );
   }
 }
+
+
+
 
 
 

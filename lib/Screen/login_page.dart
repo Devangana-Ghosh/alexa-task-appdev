@@ -19,31 +19,32 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+      body: SafeArea(
         child:Container(
-        width:double.infinity,
-        child:Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-          padding:EdgeInsets.only(
-        top:12.0,),
-            child:Text("Login To Your Account",
-            textAlign: TextAlign.center,
-            style:Constants.boldheading,),),
-            Column(
-              children:[
-                CustomInput(
-                  hintText:"Email..",
-                ),
-                CustomInput(
-                  hintText: "Password..",
-                ),
-                CustomBtn(
+          width:double.infinity,
+          child:Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding:EdgeInsets.only(
+                  top:12.0,),
+                child:Text("Login To Your Account",
+                  textAlign: TextAlign.center,
+                  style:Constants.boldheading,),),
+              Column(
+                children:[
+                  CustomInput(
+                    hintText:"Email..",
+                  ),
+                  CustomInput(
+                    hintText: "Password..",
+                  ),
+                  CustomBtn(
                     text:"Login",
-                  outlineBtn: false ,
+                    outlineBtn: false ,
                     onPressed: () {
                       Future.delayed(Duration.zero, () {
+                        print("push");
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -52,32 +53,31 @@ class _LoginPageState extends State<LoginPage> {
                       }
                       );
                     },
-                ),
-            ],
-            ),
-            Padding(
-              padding:const EdgeInsets.only(
-                bottom:16.0,
-              ),
-            child: CustomBtn(
-                text:"Create Account",
-                onPressed: () {},
-               outlineBtn: true,
-
-
                   ),
+                ],
+              ),
+              Padding(
+                padding:const EdgeInsets.only(
+                  bottom:16.0,
+                ),
+                child: CustomBtn(
+                  text:"Create Account",
+                  onPressed: () {},
+                  outlineBtn: true,
 
-    ),
-    ],
 
-
+                ),
 
               ),
-            ),
+            ],
 
+
+
+          ),
         ),
-     );
 
-}}
+      ),
+    );
 
+  }}
 

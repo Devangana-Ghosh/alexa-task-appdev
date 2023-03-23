@@ -34,36 +34,6 @@ class Product {
 
   Product(this.name, this.price);
 }
-/**
-    class ProductList extends StatelessWidget {
-    final List<Product> products = [    Product('iPhone 13 Pro', 999),    Product('Samsung Galaxy S21', 899),    Product('Google Pixel 6', 749),  ];
-
-    @override
-    Widget build(BuildContext context) {
-    return Material(
-    child:ListView.builder(
-    itemCount: products.length,
-    itemBuilder: (context, index) {
-    return ListTile(
-    title: Text(products[index].name),
-    subtitle: Text('\$${products[index].price}'),
-    trailing: IconButton(
-    icon: Icon(Icons.add),
-    onPressed: () {
-    Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => CartPage()),
-
-    );
-    },
-    ),
-    );
-    },
-    )
-    );
-    }
-    }
- **/
 
 class ProductList extends StatefulWidget {
   @override

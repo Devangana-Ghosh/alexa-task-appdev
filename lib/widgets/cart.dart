@@ -14,7 +14,15 @@ class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar(actions: [
+        IconButton(
+          icon: Icon(Icons.shopping_cart),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ],
+
         title: Text('Cart'),
       ),
       body: widget.cartItems.isEmpty

@@ -32,25 +32,25 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('E-Commerce App'),
-      ),
-      body:Material(
-    child:ListView.builder(
-        itemCount: products.length,
-        itemBuilder: (BuildContext context, int index) {
-          dynamic product = products[index];
-          return ListTile(
-            title: Text(product['title']),
-            subtitle: Text('\$${product['price']}'),
-            trailing: ElevatedButton(
-              onPressed: () => addToCart(product),
-              child: Text('Add to Cart'),
-            ),
-          );
-        },
-      ),
-      )
+        appBar: AppBar(
+          title: Text('E-Commerce App'),
+        ),
+        body:Material(
+          child:ListView.builder(
+            itemCount: products.length,
+            itemBuilder: (BuildContext context, int index) {
+              dynamic product = products[index];
+              return ListTile(
+                title: Text(product['title']),
+                subtitle: Text('\$${product['price']}'),
+                trailing: ElevatedButton(
+                  onPressed: () => addToCart(product),
+                  child: Text('Add to Cart'),
+                ),
+              );
+            },
+          ),
+        )
     );
   }
 }

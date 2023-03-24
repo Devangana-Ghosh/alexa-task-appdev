@@ -1,4 +1,3 @@
-
 import 'package:alexa_shopping/widgets/custom_input.dart';
 import 'package:alexa_shopping/widgets/product.dart';
 import 'package:flutter/material.dart';
@@ -80,4 +79,3 @@ class _LoginPageState extends State<LoginPage> {
     );
 
   }}
-

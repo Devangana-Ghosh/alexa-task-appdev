@@ -30,6 +30,11 @@ class _CartPageState extends State<CartPage> {
           return ListTile(
             title: Text(product['title']),
             subtitle: Text('\$${product['price']}'),
+            leading: Image.network(
+              product['image'],
+              width: 50,
+              height: 50,
+            ),
           );
         },
       ),
@@ -86,6 +91,11 @@ class _ProductListState extends State<ProductList> {
           return ListTile(
             title: Text(product['title']),
             subtitle: Text('\$${product['price']}'),
+            leading: Image.network(
+              product['image'],
+              width: 50,
+              height: 50,
+            ),
             trailing: IconButton(
               icon: Icon(Icons.add),
               onPressed: () {

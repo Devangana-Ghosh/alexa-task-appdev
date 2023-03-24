@@ -6,41 +6,87 @@ import 'package:flutter/material.dart';
 import 'api.dart';
 import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
+
+
+
 class CartPage extends StatefulWidget {
   final List<dynamic> cartItems;
 
   CartPage({Key? key, required this.cartItems}) : super(key: key);
+
   @override
   _CartPageState createState() => _CartPageState();
 }
 
 class _CartPageState extends State<CartPage> {
+
+
+  double getTotalPrice() {
+    double totalPrice = 0;
+    for (dynamic product in widget.cartItems) {
+      totalPrice += product['price'];
+    }
+    return totalPrice;
+  }
+  void removeFromCart(int index){
+    setState(() {
+      widget.cartItems.removeAt(index);
+    });}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Cart'),
       ),
-      body: widget.cartItems.isEmpty
-          ? Center(child: Text('Your Cart is Empty'))
-          : ListView.builder(
-        itemCount: widget.cartItems.length,
-        itemBuilder: (BuildContext context, int index) {
-          dynamic product = widget.cartItems[index];
-          return ListTile(
-            title: Text(product['title']),
-            subtitle: Text('\$${product['price']}'),
-            leading: Image.network(
-              product['image'],
-              width: 50,
-              height: 50,
+      body: Column(
+        children: [
+          Expanded(
+            child: widget.cartItems.isEmpty
+                ? Center(child: Text('Your Cart is Empty'))
+                : ListView.builder(
+              itemCount: widget.cartItems.length,
+              itemBuilder: (BuildContext context, int index) {
+                dynamic product = widget.cartItems[index];
+                return ListTile(
+                  title: Text(product['title']),
+                  subtitle: Text('\$${product['price']}'),
+                  leading: Image.network(
+                    product['image'],
+                    width: 50,
+                    height: 50,
+                  ),
+                  trailing:IconButton(
+                    icon:Icon(Icons.remove),
+                    onPressed: (){
+                      removeFromCart(index);
+                    },
+                  ),
+                );
+              },
             ),
-          );
-        },
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Total Price: \$${getTotalPrice()}'),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Checkout'),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 }
+
+
 
 class ProductList extends StatefulWidget {
   @override

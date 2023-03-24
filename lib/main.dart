@@ -1,8 +1,11 @@
 import 'package:alexa_shopping/Screen/llanding_page.dart';
 import 'package:alexa_shopping/widgets/product.dart';
+import 'package:alexa_shopping/widgets/productInfo.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'Screen/home_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -29,5 +32,3 @@ class MyApp extends StatelessWidget {
 
   }
 }
-
-

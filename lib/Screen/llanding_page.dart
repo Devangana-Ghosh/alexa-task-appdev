@@ -27,27 +27,27 @@ class LandingPage extends StatelessWidget {
             builder:(context,streamSnapshot){
               if (snapshot.hasError) {
                 return Scaffold(
-                    body: Center(
-                      child: Text("error: ${streamSnapshot.error}"),
-                    ),
+                  body: Center(
+                    child: Text("error: ${streamSnapshot.error}"),
+                  ),
 
                 );
-            }
+              }
               if(streamSnapshot.connectionState==ConnectionState.active){
-               User? _user=streamSnapshot.data;
-               if(_user==null){
-                 return LoginPage();
-               }
-               else{
-                 return HomePage();
-               }
+                User? _user=streamSnapshot.data;
+                if(_user==null){
+                  return LoginPage();
+                }
+                else{
+                  return HomePage();
+                }
               }
               return Scaffold(
                 body: Center(
                   child: Text("Checking Authentication.."),
                 ),
               );
-              },
+            },
           );
 
         }

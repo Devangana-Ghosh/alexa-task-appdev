@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:alexa_shopping/Screen/checkout.dart';
 import 'package:http/http.dart' as http;
 import 'package:alexa_shopping/widgets/product.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,10 @@ import 'package:flutter/material.dart';
 
 
 
+
 class CartPage extends StatefulWidget {
   final List<dynamic> cartItems;
+
 
   CartPage({Key? key, required this.cartItems}) : super(key: key);
 
@@ -74,7 +77,11 @@ class _CartPageState extends State<CartPage> {
               children: [
                 Text('Total Price: \$${getTotalPrice()}'),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () { Navigator.push(
+                    context,
+
+                    MaterialPageRoute(builder: (context) => CheckoutPage(cartItems: widget.cartItems, )),
+                  );},
                   child: Text('Checkout'),
                 ),
               ],

@@ -17,38 +17,48 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return MaterialApp(
+
+    home:Scaffold(
+      resizeToAvoidBottomInset: true,
+
+      body: SingleChildScrollView(
         child:Container(
           width:double.infinity,
           child:Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+
               Container(
                 padding:EdgeInsets.only(
-                  top:12.0,),
+                  top:50.0,),
                 child:Text("Login To Your Account",
                   textAlign: TextAlign.center,
                   style:Constants.boldheading,),),
               Column(
-                children:[
+
+              children:[
+                SizedBox(height: 200.0),
                   CustomInput(
                     hintText:"Email..",
                   ),
-                  CustomInput(
+
+                CustomInput(
                     hintText: "Password..",
+
                   ),
+                SizedBox(height: 10.0),
                   CustomBtn(
                     text:"Login",
                     outlineBtn: false ,
-                    onPressed: () {
+                    onPressed: (){
                       Future.delayed(Duration.zero, () {
                         print("push");
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) =>  ProductList()),
-                        );
+                     );
                       }
                       );
                     },
@@ -57,8 +67,9 @@ class _LoginPageState extends State<LoginPage> {
               ),
               Padding(
                 padding:const EdgeInsets.only(
-                  bottom:16.0,
+                  top:250.0,
                 ),
+
                 child: CustomBtn(
                   text:"Create Account",
                   onPressed: () {},
@@ -76,6 +87,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
 
       ),
+    )
     );
 
   }}

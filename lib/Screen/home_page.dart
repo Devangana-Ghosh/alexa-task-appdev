@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           title: Text('E-Commerce App'),
         ),
         body:Material(
-          child:ListView.builder(
+    child:ListView.builder(
             itemCount: products.length,
             itemBuilder: (BuildContext context, int index) {
               dynamic product = products[index];
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-        )
+        ),
     );
   }
 }
